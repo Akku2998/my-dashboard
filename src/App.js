@@ -3,7 +3,12 @@ import { useState, useRef } from "react";
 function App() {
   const [activeTab, setActiveTab] = useState("about"); // State to track the active tab
   const fileInputRef = useRef(null);
-  const [images, setImages] = useState([]); // Array to hold uploaded images
+  const [images, setImages] = useState([
+    "/Rectangle 5160.jpg", // Placeholder for existing image 1
+    "/Rectangle 5160.jpg", // Placeholder for existing image 2
+    "/Rectangle 5160.jpg", // Placeholder for existing image 3
+  ]); // Array to hold uploaded images
+
   const [currentIndex, setCurrentIndex] = useState(0); // Track current image index
 
   // Handle image selection
@@ -33,7 +38,7 @@ function App() {
   };
   return (
     <div className="bg-gray-900 h-screen">
-      <div className="flex h-3/4  p-6">
+      <div className="flex h-4/4  p-6">
         {/* Left half empty */}
         <div class="w-1/2 rounded-[27px] border border-[#96BEE7] bg-[#616161D1] mt-10 lg:mt-0 mr-4 lg:mr-8"></div>
 
@@ -123,7 +128,7 @@ function App() {
                       Experienced in responsive design, I ensure seamless
                       experiences across devices. Adept at leveraging modern
                       frameworks and libraries to enhance functionality and
-                      scalabilit
+                      scalability.
                     </p>
                   </div>
                 )}
@@ -250,38 +255,6 @@ function App() {
 
               {/* Gallery Grid */}
               <div className="grid grid-cols-3 gap-6 justify-center items-center px-2">
-                {/* Image 1 */}
-                <div className="relative">
-                  <img
-                    src="/Rectangle 5160.jpg"
-                    className="h-[150px] w-[170px] rounded-2xl transition-transform duration-500 transform hover:scale-110 hover:-rotate-[2deg] hover:opacity-100 opacity-25"
-                    alt="Image 1"
-                  />
-                </div>
-
-                {/* Image 2 */}
-                <div className="relative">
-                  <img
-                    src="/Rectangle 5160.jpg"
-                    className="h-[150px] w-[170px] rounded-2xl transition-transform duration-500 transform hover:scale-110 hover:-rotate-[2deg] hover:opacity-100 opacity-25"
-                    alt="Image 2"
-                  />
-                </div>
-
-                {/* Image 3 */}
-                <div className="relative">
-                  <img
-                    src="/Rectangle 5160.jpg"
-                    className="h-[150px] w-[170px] rounded-2xl transition-transform duration-500 transform hover:scale-110 hover:-rotate-[2deg] hover:opacity-100 opacity-25"
-                    alt="Image 3"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Image Carousel */}
-            <div className="flex gap-4 p-2 ml-2.5">
-              <div className="grid grid-cols-3 gap-6 justify-center items-center px-2">
                 {images
                   .slice(currentIndex, currentIndex + 3)
                   .map((image, index) => (
@@ -294,6 +267,64 @@ function App() {
                     </div>
                   ))}
               </div>
+
+              {/* Gallery Grid
+              <div className="grid grid-cols-3 gap-6 justify-center items-center px-2">
+                {images
+                  .slice(currentIndex, currentIndex + 3)
+                  .map((image, index) => (
+                    <div className="relative" key={index}>
+                      <img
+                        src={image}
+                        alt={`Image ${index + 1}`}
+                        className="h-[150px] w-[170px] rounded-2xl transition-transform duration-500 transform hover:scale-110 hover:-rotate-[2deg]"
+                      />
+                    </div>
+                  ))}
+              </div> */}
+
+              {/* Gallery Grid */}
+              {/* <div className="grid grid-cols-3 gap-6 justify-center items-center px-2">
+                {/* Image 1 */}
+              {/* <div className="relative">
+                  <img
+                    src="/Rectangle 5160.jpg"
+                    className="h-[150px] w-[170px] rounded-2xl transition-transform duration-500 transform hover:scale-110 hover:-rotate-[2deg] hover:opacity-100 opacity-25"
+                    alt="Image 1"
+                  />
+                </div>
+
+                {/* Image 2 */}
+              {/* <div className="relative">
+                  <img
+                    src="/Rectangle 5160.jpg"
+                    className="h-[150px] w-[170px] rounded-2xl transition-transform duration-500 transform hover:scale-110 hover:-rotate-[2deg] hover:opacity-100 opacity-25"
+                    alt="Image 2"
+                  />
+                </div> */}
+
+              {/* Image 3 */}
+              {/* <div className="relative">
+                  <img
+                    src="/Rectangle 5160.jpg"
+                    className="h-[150px] w-[170px] rounded-2xl transition-transform duration-500 transform hover:scale-110 hover:-rotate-[2deg] hover:opacity-100 opacity-25"
+                    alt="Image 3"
+                  />
+                </div>
+                <div className="relative">
+                  {images
+                    .slice(currentIndex, currentIndex + 3)
+                    .map((image, index) => (
+                      <div className="relative" key={index}>
+                        <img
+                          src={image}
+                          alt={`Image ${index + 1}`}
+                          className="h-[150px] w-[170px] rounded-2xl transition-transform duration-500 transform hover:scale-110 hover:-rotate-[2deg]"
+                        />
+                      </div>
+                    ))}
+                </div>
+              </div> */}
             </div>
           </div>
 
