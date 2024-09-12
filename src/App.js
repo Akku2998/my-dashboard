@@ -4,33 +4,31 @@ function App() {
   const [activeTab, setActiveTab] = useState("about"); // State to track the active tab
   const fileInputRef = useRef(null);
   const [images, setImages] = useState([
-    "/Rectangle 5160.jpg", // Placeholder for existing image 1
-    "/Rectangle 5160.jpg", // Placeholder for existing image 2
-    "/Rectangle 5160.jpg", // Placeholder for existing image 3
-  ]); // Array to hold uploaded images
+    "/Rectangle 5160.jpg", 
+    "/Rectangle 5160.jpg", 
+    "/Rectangle 5160.jpg", 
+  ]); 
 
-  const [currentIndex, setCurrentIndex] = useState(0); // Track current image index
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   // Handle image selection
   const handleImageChange = (event) => {
-    const files = Array.from(event.target.files); // Get the selected files
-    const imageUrls = files.map((file) => URL.createObjectURL(file)); // Convert to URLs
-    setImages((prevImages) => [...prevImages, ...imageUrls]); // Add the new images to the list
+    const files = Array.from(event.target.files); 
+    const imageUrls = files.map((file) => URL.createObjectURL(file)); 
+    setImages((prevImages) => [...prevImages, ...imageUrls]); 
   };
 
-  // Trigger file input click
   const handleButtonClick = () => {
     fileInputRef.current.click();
   };
 
-  // Scroll to the next image
-  // Scroll to next image set
+
   const handleNextImage = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex < images.length - 3 ? prevIndex + 3 : 0
     );
   };
-  // Scroll to previous image set
+
   const handlePreviousImage = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex > 0 ? prevIndex - 3 : Math.max(0, images.length - 3)
@@ -39,12 +37,9 @@ function App() {
   return (
     <div className="bg-gray-900 h-screen">
       <div className="flex h-4/4  p-6">
-        {/* Left half empty */}
+       
         <div class="w-1/2 rounded-[27px] border border-[#96BEE7] bg-[#616161D1] mt-10 lg:mt-0 mr-4 lg:mr-8"></div>
 
-        {/* Right side with widgets */}
-        <div className="w-1/2 space-y-6">
-          {/* First widget */}
           <div className="bg-gray-800 p-4 rounded-2xl shadow-md">
             <div className="h-[56px] bg-black rounded-2xl flex justify-evenly items-center font-semibold text-[12px]">
               <div
@@ -192,10 +187,10 @@ function App() {
                       multiple
                       onChange={handleImageChange}
                     />
-                    {/* Display the selected image */}
+                   
                   </div>
 
-                  {/* carosal Additional Buttons */}
+              
 
                   <div className="flex gap-3 text-[#6F787C] px-2">
                     {/* Button 1 */}
@@ -267,64 +262,6 @@ function App() {
                     </div>
                   ))}
               </div>
-
-              {/* Gallery Grid
-              <div className="grid grid-cols-3 gap-6 justify-center items-center px-2">
-                {images
-                  .slice(currentIndex, currentIndex + 3)
-                  .map((image, index) => (
-                    <div className="relative" key={index}>
-                      <img
-                        src={image}
-                        alt={`Image ${index + 1}`}
-                        className="h-[150px] w-[170px] rounded-2xl transition-transform duration-500 transform hover:scale-110 hover:-rotate-[2deg]"
-                      />
-                    </div>
-                  ))}
-              </div> */}
-
-              {/* Gallery Grid */}
-              {/* <div className="grid grid-cols-3 gap-6 justify-center items-center px-2">
-                {/* Image 1 */}
-              {/* <div className="relative">
-                  <img
-                    src="/Rectangle 5160.jpg"
-                    className="h-[150px] w-[170px] rounded-2xl transition-transform duration-500 transform hover:scale-110 hover:-rotate-[2deg] hover:opacity-100 opacity-25"
-                    alt="Image 1"
-                  />
-                </div>
-
-                {/* Image 2 */}
-              {/* <div className="relative">
-                  <img
-                    src="/Rectangle 5160.jpg"
-                    className="h-[150px] w-[170px] rounded-2xl transition-transform duration-500 transform hover:scale-110 hover:-rotate-[2deg] hover:opacity-100 opacity-25"
-                    alt="Image 2"
-                  />
-                </div> */}
-
-              {/* Image 3 */}
-              {/* <div className="relative">
-                  <img
-                    src="/Rectangle 5160.jpg"
-                    className="h-[150px] w-[170px] rounded-2xl transition-transform duration-500 transform hover:scale-110 hover:-rotate-[2deg] hover:opacity-100 opacity-25"
-                    alt="Image 3"
-                  />
-                </div>
-                <div className="relative">
-                  {images
-                    .slice(currentIndex, currentIndex + 3)
-                    .map((image, index) => (
-                      <div className="relative" key={index}>
-                        <img
-                          src={image}
-                          alt={`Image ${index + 1}`}
-                          className="h-[150px] w-[170px] rounded-2xl transition-transform duration-500 transform hover:scale-110 hover:-rotate-[2deg]"
-                        />
-                      </div>
-                    ))}
-                </div>
-              </div> */}
             </div>
           </div>
 
